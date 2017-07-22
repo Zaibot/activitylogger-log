@@ -1,0 +1,46 @@
+{
+  "name": "@zaibot/activitylogger-log",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon -w src -e js,json,ts -w package.json -w webpack.config.js -x \"(webpack --progress && echo Launching... && node .) || exit 0\"",
+    "build": "webpack",
+    "docker": "docker build --rm . -t activitylogger-log",
+    "tslint": "tslint --config ./src/tslint.json --project ./src/tsconfig.json --type-check",
+    "tslint:fix": "tslint --config ./src/tslint.json --project ./src/tsconfig.json --type-check --fix",
+    "lint": "npm run tslint",
+    "lint:fix": "npm run tslint:fix",
+    "protocol-update": "git pull --recurse-submodules && sh -c \"cd protocol; ./generate-descriptors.sh\""
+  },
+  "keywords": [],
+  "author": "Zaibot Programs",
+  "license": "ISC",
+  "dependencies": {
+    "arangojs": "^5.7.0",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "crypto": "0.0.3",
+    "express": "^4.15.3",
+    "forever": "^0.15.3",
+    "long": "^3.2.0",
+    "mongodb": "^2.2.30",
+    "node-rsa": "^0.4.2",
+    "protobufjs": "^6.8.0",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "^1.16.4",
+    "@types/compression": "0.0.33",
+    "@types/express": "^4.0.36",
+    "@types/node": "^8.0.15",
+    "@types/uuid": "^3.4.0",
+    "@zaibot/tslint-preset": "github:zaibot/tslint-preset",
+    "ts-loader": "^2.3.1",
+    "tslint": "^5.5.0",
+    "typescript": "^2.4.2",
+    "webpack": "^3.3.0",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
